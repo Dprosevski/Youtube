@@ -4,24 +4,50 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR;
 
+//2Tutorial
+using SignalrDemo.EFModels;
+using SignalrDemo.HubModels;
+
 namespace SignalrDemo.HubConfig
 {
     public class MyHub : Hub
     {
-        public async Task askServer(string someTextFromClient)
+        //2Tutorial
+        private readonly SignalrContext ctx;
+        
+        public MyHub(SignalrContext context)
         {
-            string tempString;
+            ctx = context;
+        }
 
-            if (someTextFromClient == "hey")
+
+        //2Tutorial
+        public async Task authMe(PersonInfo personInfo)
+        {
+            string currSignalrID = Context.ConnectionId;
+            Person tempPerson = ctx.Person.Where(p => p.Username == personInfo.userName && p.Password == personInfo.password)
+                .SingleOrDefault();
+
+            if (tempPerson != null) //if credentials are correct
             {
-                tempString = "message was 'hey'";
-            }
-            else
-            {
-                tempString = "message was something else";
+                Console.WriteLine("\n" + tempPerson.Name + " logged in" + "\nSignalrID: " + currSignalrID);
+
+                Connections currUser = new Connections
+                {
+                    PersonId = tempPerson.Id,
+                    SignalrId = currSignalrID,
+                    TimeStamp = DateTime.Now
+                };
+                await ctx.Connections.AddAsync(currUser);
+                await ctx.SaveChangesAsync();
+
+                await Clients.Caller.SendAsync("authMeResponseSuccess", tempPerson);
             }
 
-            await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", tempString);
+            else //if credentials are incorrect
+            {
+                await Clients.Caller.SendAsync("authMeResponseFail");
+            }
         }
     }
 }

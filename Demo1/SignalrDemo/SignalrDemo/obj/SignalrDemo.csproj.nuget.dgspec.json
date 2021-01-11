@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dpros\\Desktop\\SignalrTutorial\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {}
+    "D:\\Desktop\\SignalrProjects\\Sources\\Demo1\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dpros\\Desktop\\SignalrTutorial\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {
+    "D:\\Desktop\\SignalrProjects\\Sources\\Demo1\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dpros\\Desktop\\SignalrTutorial\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
+        "projectUniqueName": "D:\\Desktop\\SignalrProjects\\Sources\\Demo1\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
         "projectName": "SignalrDemo",
-        "projectPath": "C:\\Users\\dpros\\Desktop\\SignalrTutorial\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
+        "projectPath": "D:\\Desktop\\SignalrProjects\\Sources\\Demo1\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
         "packagesPath": "C:\\Users\\dpros\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dpros\\Desktop\\SignalrTutorial\\SignalrDemo\\SignalrDemo\\obj\\",
+        "outputPath": "D:\\Desktop\\SignalrProjects\\Sources\\Demo1\\SignalrDemo\\SignalrDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dpros\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,12 +53,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

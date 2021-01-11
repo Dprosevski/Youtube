@@ -1,0 +1,36 @@
+<!-- Added in tutorial 2 -->
+<div class="row">
+  <div 
+    class =
+      "col-xl-2  offset-xl-5 
+       col-lg-4  offset-lg-4 
+       col-6     offset-3"
+      >
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="loginForm">
+      <div class="row">
+        <div class="col-10 offset-1">
+          <div class="form-group">
+            <label for="userName">Username</label>
+            <input type="username" id="userName" class="form-control" ngModel name="userName"  />
+          </div>  
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-10 offset-1">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" ngModel name="password"  />
+          </div>
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 10px;"> 
+        <div class="col-1 offset-1">
+          <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

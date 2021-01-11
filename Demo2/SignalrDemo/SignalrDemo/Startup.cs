@@ -7,15 +7,34 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
+//2Tutorial
+using SignalrDemo.EFModels;
 using SignalrDemo.HubConfig;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace SignalrDemo
 {
     public class Startup
     {
+        //2Tutorial
+        public IConfiguration Configuration { get; }
+
+        //2Tutorial
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
-            //added
+            //2Tutorial
+            services.AddDbContextPool<SignalrContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("MyConnection"))
+            );
+
+            //1Tutorial
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAllHeaders",
@@ -27,13 +46,13 @@ namespace SignalrDemo
                     });
             });
 
-            //added
+            //1Tutorial
             services.AddSignalR(options =>
             {
                 options.EnableDetailedErrors = true;
             });
 
-            //added
+            //1Tutorial
             services.AddControllers();
 
         }
@@ -47,11 +66,11 @@ namespace SignalrDemo
 
             app.UseRouting();
 
-            //added
+            //1Tutorial
             app.UseCors("AllowAllHeaders");
 
 
-            //added
+            //1Tutorial
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

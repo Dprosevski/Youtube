@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desktop\\SignalrTutorials\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {}
+    "D:\\Desktop\\SignalrProjects\\Sources\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {}
   },
   "projects": {
-    "D:\\Desktop\\SignalrTutorials\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {
+    "D:\\Desktop\\SignalrProjects\\Sources\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desktop\\SignalrTutorials\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
+        "projectUniqueName": "D:\\Desktop\\SignalrProjects\\Sources\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
         "projectName": "SignalrDemo",
-        "projectPath": "D:\\Desktop\\SignalrTutorials\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
+        "projectPath": "D:\\Desktop\\SignalrProjects\\Sources\\Demo2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
         "packagesPath": "C:\\Users\\dpros\\.nuget\\packages\\",
-        "outputPath": "D:\\Desktop\\SignalrTutorials\\Demo2\\SignalrDemo\\SignalrDemo\\obj\\",
+        "outputPath": "D:\\Desktop\\SignalrProjects\\Sources\\Demo2\\SignalrDemo\\SignalrDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dpros\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,9 +38,23 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.AspNetCore.SignalR": {
               "target": "Package",
               "version": "[1.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.1, )"
             }
           },
           "imports": [

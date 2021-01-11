@@ -17,10 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.signalrService.startConnection();
 
-    setTimeout(() => {
-      this.signalrService.askServerListener();
-      this.signalrService.askServer();
-    }, 2000);
+
   }
 
   

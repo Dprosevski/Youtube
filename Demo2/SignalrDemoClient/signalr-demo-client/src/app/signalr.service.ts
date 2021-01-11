@@ -1,13 +1,20 @@
+import { ToastrService } from 'ngx-toastr';
 import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
+import { Router } from '@angular/router';
+
 
 @Injectable({ providedIn: 'root' })
 export class SignalrService {
     constructor(
+        public toastr: ToastrService,
+        public router: Router //Added in tutorial 2
         ) { }
 
 
     hubConnection:signalR.HubConnection;
+    //Added in tutorial 2
+    personName: string;
 
     startConnection = () => {
         this.hubConnection = new signalR.HubConnectionBuilder()
@@ -20,20 +27,9 @@ export class SignalrService {
         this.hubConnection
         .start()
         .then(() => {
-            console.log('Hub Connection Started!');
         })
         .catch(err => console.log('Error while starting connection: ' + err))
     }
 
 
-    askServer() {
-        this.hubConnection.invoke("askServer", "hi")
-            .catch(err => console.error(err));
-    }
-    
-    askServerListener() {
-        this.hubConnection.on("askServerResponse", (someText) => {
-            console.log(someText);
-        })
-    }
 }
