@@ -1,4 +1,4 @@
-import { SignalrService } from './../signalr.service';
+import { SignalrService } from 'src/app/signalr.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor(
-    public signalrService: SignalrService //Added in tutorial 2 
+    public signalrService: SignalrService //2Tutorial
   ) { }
 
   ngOnInit(): void {

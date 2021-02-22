@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { SignalrService } from './../signalr.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
@@ -8,18 +9,21 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./auth.component.css']
 })
 
-//Added in tutorial 2
+//2Tutorial
 export class AuthComponent implements OnInit, OnDestroy {
   
   constructor(
-    public signalrService: SignalrService
+    public signalrService: SignalrService,
+    public authService: AuthService //3Tutorial
   ) { }
 
+  //3Tutorial
   ngOnInit(): void {
-    this.authMeListenerSuccess();
-    this.authMeListenerFail();
+    this.authService.authMeListenerSuccess();
+    this.authService.authMeListenerFail();
   }
 
+   //3Tutorial
   ngOnDestroy(): void {
     this.signalrService.hubConnection.off("authMeResponseSuccess");
     this.signalrService.hubConnection.off("authMeResponseFail");
@@ -31,38 +35,12 @@ export class AuthComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.authMe(form.value.userName, form.value.password);
+    this.authService.authMe(form.value.userName, form.value.password);
     form.reset();
   }
 
 
-  async authMe(user: string, pass: string) {
-    let personInfo = {userName: user, password: pass};
 
-    await this.signalrService.hubConnection.invoke("authMe", personInfo)
-    .finally(() => {
-      this.signalrService.toastr.info("Loging in attempt...")
-    })
-    .catch(err => console.error(err));
-  }
-
-
-
-  private authMeListenerSuccess() {
-    this.signalrService.hubConnection.on("authMeResponseSuccess", (personInfo: any) => {
-        console.log(personInfo);
-        this.signalrService.personName = personInfo.name;
-        this.signalrService.toastr.success("Login successful!");
-        this.signalrService.router.navigateByUrl("/home");
-    });
-  }
-
-
-  private authMeListenerFail() {
-    this.signalrService.hubConnection.on("authMeResponseFail", () => {
-      this.signalrService.toastr.error("Wrong credentials!");
-    });
-  }
 
 
 }

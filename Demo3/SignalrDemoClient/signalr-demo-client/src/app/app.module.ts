@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth/auth.guard';
+import { HomeModule } from './home/home.module';
 import { SignalrService } from './signalr.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -8,20 +10,18 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthComponent } from './auth/auth.component';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
 
-    //added tutorial 2
+    //Added tutorial 2
     FormsModule,
 
     ToastrModule.forRoot({

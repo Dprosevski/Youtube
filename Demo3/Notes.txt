@@ -1,23 +1,20 @@
 CLIENT:
-	npm i bootstrap
-	ng g c home --module app
-	ng g c auth --module app
+turned home component into module so it can be lazy loaded
+and protected by AuthGuard
+ng generate module home --route home --module app.module
 
+added AuthService with authMe and reAuthme invocations and listeners
+
+added subject and observable for signalR service
 
 
 
 
 SERVER:
-	nugets:
-	EntityFramework
-	Microsoft.EntityFrameworkCore.SqlServer
-	Microsoft.EntityFrameworkCore.Tools
+added reauthMe task
 
-	installed packages above
-	run Scaffold (project must have no bugs in order for scaffold to succeed)
-	remove default constructor from context.cs
+
 
 
 DB:
-	make sure entities have primary keys
-	default binding for id - uniqueidentifier
+show db entries
