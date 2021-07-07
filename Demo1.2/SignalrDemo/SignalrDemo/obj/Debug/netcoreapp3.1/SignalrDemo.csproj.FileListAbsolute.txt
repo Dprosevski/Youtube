@@ -46,7 +46,6 @@ C:\Users\dpros\Desktop\SignalrTutorial\SignalrDemo\SignalrDemo\obj\Debug\netcore
 C:\Users\dpros\Desktop\SignalrTutorial\SignalrDemo\SignalrDemo\obj\Debug\netcoreapp3.1\SignalrDemo.genruntimeconfig.cache
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\bin\Debug\netcoreapp3.1\appsettings.json
-D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\bin\Debug\netcoreapp3.1\SignalrDemo.exe
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\bin\Debug\netcoreapp3.1\SignalrDemo.deps.json
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\bin\Debug\netcoreapp3.1\SignalrDemo.runtimeconfig.json
@@ -67,3 +66,4 @@ D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\obj\Debug\net
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\obj\Debug\netcoreapp3.1\SignalrDemo.dll
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\obj\Debug\netcoreapp3.1\SignalrDemo.pdb
 D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\obj\Debug\netcoreapp3.1\SignalrDemo.genruntimeconfig.cache
+D:\Desktop\SignalrProjects\Sources\Demo1.2\SignalrDemo\SignalrDemo\obj\Debug\netcoreapp3.1\scopedcss\bundle\SignalrDemo.styles.css

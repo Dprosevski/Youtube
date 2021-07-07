@@ -1,0 +1,15 @@
+<!-- 4Tutorial  -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 pl-4">
+      Welcome {{ signalrService.userData?.name }}
+    </div>
+    <div class="col-6 text-right" style="cursor: pointer;" (click)="logOut()">
+      Logout
+    </div>
+  </div>
+
+  <ul class="list-group" *ngFor="let user of users">
+    <li class="list-group-item">{{ user.name }}</li>
+  </ul>
+</div>

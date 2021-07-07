@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eZFv+0Gc4N6rHYiPnNWw8WQm8ghaH7UlDPCmhsPxLfjwhfHyxSsaPN7rzNDpJXvaWFGcLZ2u7RKo8QY8DZTYaw==",
+  "dgSpecHash": "7fqbF8Jllz2MJ29lqGZBkHFFPVQi3I6DDzjgllxmiozQ3OYtaOEI12yzrDJoTIt1NJ030NZE9Jod2roP+eIamg==",
   "success": true,
   "projectFilePath": "D:\\Desktop\\SignalrProjects\\Sources\\Demo1.2\\SignalrDemo\\SignalrDemo\\SignalrDemo.csproj",
   "expectedPackageFiles": [
@@ -52,7 +52,8 @@
     "C:\\Users\\dpros\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\dpros\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
     "C:\\Users\\dpros\\.nuget\\packages\\system.threading.channels\\4.5.0\\system.threading.channels.4.5.0.nupkg.sha512",
-    "C:\\Users\\dpros\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+    "C:\\Users\\dpros\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\dpros\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.13\\microsoft.netcore.app.host.win-x64.3.1.13.nupkg.sha512"
   ],
   "logs": []
 }

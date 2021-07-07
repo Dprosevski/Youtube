@@ -19,7 +19,7 @@ export class SignalrService {
             transport: signalR.HttpTransportType.WebSockets
         })
         .build();
-    
+
         this.hubConnection
         .start()
         .then(() => {
@@ -39,10 +39,10 @@ export class SignalrService {
                 console.log("askServer.then");
             })
             .catch(err => console.error(err));
-            
+
         console.log("This is the final prompt");
     }
-    
+
     askServerListener() {
         console.log("askServerListenerStart");
 
