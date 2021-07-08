@@ -1,7 +1,6 @@
-import { SignalrService, User } from 'src/app/signalr.service';
+import { User } from './../signalr.service';
+import { SignalrService } from 'src/app/signalr.service';
 import { Component, OnInit } from '@angular/core';
-
-
 
 @Component({
   selector: 'app-home',
@@ -14,11 +13,10 @@ export class HomeComponent implements OnInit {
     public signalrService: SignalrService //2Tutorial
   ) { }
 
+  //vars
   //4Tutorial
   users: Array<User> = new Array<User>();
 
-
-  //4Tutorial
   ngOnInit(): void {
     this.userOnLis();
     this.userOffLis();
@@ -34,8 +32,22 @@ export class HomeComponent implements OnInit {
         }
       });
     }
-
   }
+
+
+
+  logOut(): void {
+    this.signalrService.hubConnection.invoke("logOut", this.signalrService.userData.id)
+    .catch(err => console.error(err));
+  }
+  logOutLis(): void {
+    this.signalrService.hubConnection.on("logoutResponse", () => {
+      localStorage.removeItem("personId");
+      location.reload();
+      // this.signalrService.hubConnection.stop();
+    });
+  }
+
 
 
   //4Tutorial
@@ -55,21 +67,6 @@ export class HomeComponent implements OnInit {
 
 
   //4Tutorial
-  async logOut(): Promise<void> {
-    this.signalrService.hubConnection.invoke("logOut", this.signalrService.userData.id)
-    .catch(err => console.error(err));
-  }
-  logOutLis(): void {
-    this.signalrService.hubConnection.on("logoutResponse", () => {
-      localStorage.removeItem("personId");
-      location.reload();
-      // this.signalrService.hubConnection.stop();
-    });
-  }
-
-
-
-  //4Tutorial
   getOnlineUsersInv(): void {
     this.signalrService.hubConnection.invoke("getOnlineUsers")
     .catch(err => console.error(err));
@@ -79,8 +76,5 @@ export class HomeComponent implements OnInit {
       this.users = [...onlineUsers];
     });
   }
-
-
-
 
 }

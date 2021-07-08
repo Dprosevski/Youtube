@@ -26,14 +26,13 @@ namespace SignalrDemo.HubConfig
             Guid currUserId = ctx.Connections.Where(c => c.SignalrId == Context.ConnectionId).Select(c => c.PersonId).SingleOrDefault();
             ctx.Connections.RemoveRange(ctx.Connections.Where(p => p.PersonId == currUserId).ToList());
             ctx.SaveChanges();
-            Clients.Others.SendAsync("userOff", currUserId);//4Tutorial
+            Clients.Others.SendAsync("userOff", currUserId);
             return base.OnDisconnectedAsync(exception);
         }
 
 
-
-        //4Tutorial
-        public void authMe(PersonInfo personInfo)
+        //2Tutorial
+        public async Task authMe(PersonInfo personInfo)
         {
             string currSignalrID = Context.ConnectionId;
             Person tempPerson = ctx.Person.Where(p => p.Username == personInfo.userName && p.Password == personInfo.password)
@@ -49,23 +48,23 @@ namespace SignalrDemo.HubConfig
                     SignalrId = currSignalrID,
                     TimeStamp = DateTime.Now
                 };
-                ctx.Connections.Add(currUser);
-                ctx.SaveChanges();
+                await ctx.Connections.AddAsync(currUser);
+                await ctx.SaveChangesAsync();
 
                 User newUser = new User(tempPerson.Id, tempPerson.Name, currSignalrID);
-                Clients.Caller.SendAsync("authMeResponseSuccess", newUser);//4Tutorial
-                Clients.Others.SendAsync("userOn", newUser);//4Tutorial
+                await Clients.Caller.SendAsync("authMeResponseSuccess", newUser);//4Tutorial
+                await Clients.Others.SendAsync("userOn", newUser);//4Tutorial
             }
 
             else //if credentials are incorrect
             {
-                Clients.Caller.SendAsync("authMeResponseFail");
+                await Clients.Caller.SendAsync("authMeResponseFail");
             }
         }
 
 
         //3Tutorial
-        public void reauthMe(Guid personId)
+        public async Task reauthMe(Guid personId)
         {
             string currSignalrID = Context.ConnectionId;
             Person tempPerson = ctx.Person.Where(p => p.Id == personId)
@@ -81,12 +80,12 @@ namespace SignalrDemo.HubConfig
                     SignalrId = currSignalrID,
                     TimeStamp = DateTime.Now
                 };
-                ctx.Connections.Add(currUser);
-                ctx.SaveChanges();
+                await ctx.Connections.AddAsync(currUser);
+                await ctx.SaveChangesAsync();
 
                 User newUser = new User(tempPerson.Id, tempPerson.Name, currSignalrID);
-                Clients.Caller.SendAsync("reauthMeResponse", newUser);//4Tutorial
-                Clients.Others.SendAsync("userOn", newUser);//4Tutorial
+                await Clients.Caller.SendAsync("reauthMeResponse", newUser);//4Tutorial
+                await Clients.Others.SendAsync("userOn", newUser);//4Tutorial
             }
         } //end of reauthMe
 
@@ -97,7 +96,7 @@ namespace SignalrDemo.HubConfig
             ctx.Connections.RemoveRange(ctx.Connections.Where(p => p.PersonId == personId).ToList());
             ctx.SaveChanges();
             Clients.Caller.SendAsync("logoutResponse");
-            Clients.Others.SendAsync("userOff", personId);//4Tutorial
+            Clients.Others.SendAsync("userOff", personId);
         }
     }
 }

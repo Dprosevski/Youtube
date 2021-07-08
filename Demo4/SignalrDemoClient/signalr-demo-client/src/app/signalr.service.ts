@@ -9,8 +9,9 @@ import { Observable, Subject } from 'rxjs';
 export class User {
   public id: string;
   public name: string;
-  public connId: string;
+  public connId: string;//signalr
 }
+
 
 
 
@@ -23,11 +24,14 @@ export class SignalrService {
 
 
     hubConnection:signalR.HubConnection;
-    //2Tutorial
-    public userData: User;
+    //4Tutorial
+    userData: User;
 
     //3Tutorial
     ssSubj = new Subject<any>();
+    ssObs(): Observable<any> {
+        return this.ssSubj.asObservable();
+    }
 
     startConnection = () => {
         this.hubConnection = new signalR.HubConnectionBuilder()

@@ -11,6 +11,7 @@ namespace SignalrDemo.HubModels
         public string password { get; set; }
     }
 
+
     //4Tutorial
     public class User
     {
