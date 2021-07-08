@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SignalrDemo.HubConfig
 {
+    //4Tutorial
     public partial class MyHub
     {
         public async Task getOnlineUsers()

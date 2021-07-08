@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-
+  //4Tutorial
   logOut(): void {
     this.signalrService.hubConnection.invoke("logOut", this.signalrService.userData.id)
     .catch(err => console.error(err));
@@ -57,7 +57,6 @@ export class HomeComponent implements OnInit {
       this.users.push(newUser);
     });
   }
-
   userOffLis(): void {
     this.signalrService.hubConnection.on("userOff", (personId: string) => {
       this.users = this.users.filter(u => u.id != personId);

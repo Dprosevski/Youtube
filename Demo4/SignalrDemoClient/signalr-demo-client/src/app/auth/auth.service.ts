@@ -45,6 +45,7 @@ export class AuthService {
     //3Tutorial
     authMeListenerSuccess() {
       this.signalrService.hubConnection.on("authMeResponseSuccess", (user: User) => {
+        //4Tutorial
         console.log(user);
         this.signalrService.userData = {...user};
         localStorage.setItem("personId", user.id);
@@ -75,6 +76,7 @@ export class AuthService {
     //3Tutorial
     reauthMeListener() {
       this.signalrService.hubConnection.on("reauthMeResponse", (user: User) => {
+        //4Tutorial
         console.log(user);
         this.signalrService.userData = {...user}
         this.isAuthenticated = true;

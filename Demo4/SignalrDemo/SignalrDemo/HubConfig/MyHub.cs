@@ -20,7 +20,7 @@ namespace SignalrDemo.HubConfig
             ctx = context;
         }
 
-
+        //4Tutorial
         public override Task OnDisconnectedAsync(Exception exception)
         {
             Guid currUserId = ctx.Connections.Where(c => c.SignalrId == Context.ConnectionId).Select(c => c.PersonId).SingleOrDefault();
