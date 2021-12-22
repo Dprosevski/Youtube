@@ -1,0 +1,20 @@
+CLIENT:
+turned home component into module so it can be lazy loaded
+and protected by AuthGuard
+ng generate module home --route home --module app.module
+
+added AuthService with authMe and reAuthme invocations and listeners
+
+added subject and observable for signalR service
+
+
+
+
+SERVER:
+added reauthMe task
+
+
+
+
+DB:
+show db entries
